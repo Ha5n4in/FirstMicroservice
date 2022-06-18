@@ -14,8 +14,8 @@
 	<name>myFirstMicroservice</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
+		<maven.compiler.source>18</maven.compiler.source>
+		<maven.compiler.target>18</maven.compiler.target>
 		<java.version>18</java.version>
 		<sonar.organization>ha5n4in</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
