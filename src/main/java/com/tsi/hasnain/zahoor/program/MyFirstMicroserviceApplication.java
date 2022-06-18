@@ -89,6 +89,14 @@ public class MyFirstMicroserviceApplication {
 		return filmRepository.findAll();
 	}
 
+	@PostMapping("/add_Film")
+	public @ResponseBody
+	String addFilm(@RequestParam String film_name, String film_description) {
+		Film addFilm = new Film(film_name, film_description);
+		filmRepository.save(addFilm);
+		return saved;
+	}
+
 	@GetMapping("/all_Languages")
 	public @ResponseBody
 	Iterable<Language>getAllLanguages(){
