@@ -22,9 +22,9 @@ public class Actor {
 //    @JsonIgnore
 //    private Set<Film> film = new HashSet<>();
 
-    public Actor(String first_name, String last_name) {
-        this.first_name = first_name;
-        this.last_name = last_name;
+    public Actor(String firstName, String lastName) {
+        this.first_name = firstName;
+        this.last_name = lastName;
     }
 
     //Empty Constructor
