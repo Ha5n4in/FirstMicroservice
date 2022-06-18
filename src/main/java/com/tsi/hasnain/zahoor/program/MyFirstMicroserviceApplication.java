@@ -12,7 +12,7 @@ import java.util.HashMap;
 @SpringBootApplication
 @RestController
 @RequestMapping("/home")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class MyFirstMicroserviceApplication {
 
 	@Autowired
