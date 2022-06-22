@@ -44,6 +44,10 @@ public class MyFirstMicroserviceApplication {
 		return actorRepository.findAll();
 	}
 
+	@GetMapping("/a_Actor")
+	public Actor getActor(@RequestParam int actor_id) {
+		return actorRepository.findById(actor_id).orElseThrow(RuntimeException::new);
+	}
 
 	@PostMapping("/add_Actor")
 	public @ResponseBody
