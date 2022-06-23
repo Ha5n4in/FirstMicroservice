@@ -45,7 +45,7 @@ public class MyFirstMicroserviceApplication {
 	}
 
 	@GetMapping("/a_Actor")
-	public Actor getActor(@RequestParam int actor_id) {
+	public Actor getActor(@RequestParam Integer actor_id) {
 		return actorRepository.findById(actor_id).orElseThrow(RuntimeException::new);
 	}
 
@@ -95,8 +95,8 @@ public class MyFirstMicroserviceApplication {
 
 	@PostMapping("/add_Film")
 	public @ResponseBody
-	String addFilm(@RequestParam String film_name, String film_description) {
-		Film addFilm = new Film(film_name, film_description);
+	String addFilm(@RequestParam String film_name, String film_description, Integer release_year, Integer language_id, Integer length, String rating) {
+		Film addFilm = new Film(film_name, film_description, release_year, language_id, length, rating);
 		filmRepository.save(addFilm);
 		return saved;
 	}
@@ -106,5 +106,7 @@ public class MyFirstMicroserviceApplication {
 	Iterable<Language>getAllLanguages(){
 		return languageRepository.findAll();
 	}
+
+
 
 }
