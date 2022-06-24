@@ -99,10 +99,9 @@ public class MyFirstMicroserviceApplication {
 
 	@PostMapping("/add_Category")
 	public @ResponseBody
-	String addCategory(@RequestParam String category_name ) {
-		Category addCategory = new Category(category_name);
-		categoryRepository.save(addCategory);
-		return saved;
+	ResponseEntity<Category>addCategory(@RequestBody Category addCategory) { //defines Category and obtains data required for entry
+		categoryRepository.save(addCategory); //saves Category
+		return ResponseEntity.ok(addCategory); //returns message saved
 	}
 
 	@PutMapping("/update_Category/{id}")
@@ -135,10 +134,9 @@ public class MyFirstMicroserviceApplication {
 
 	@PostMapping("/add_City")
 	public @ResponseBody
-	String addCity(@RequestParam String first_name, int country_id) {
-		City addCity = new City(first_name, country_id);
-		cityRepository.save(addCity);
-		return saved;
+	ResponseEntity<City>addCity(@RequestBody City addCity) { //defines City and obtains data required for entry
+		cityRepository.save(addCity); //saves City
+		return ResponseEntity.ok(addCity); //returns message saved
 	}
 
 	@PutMapping("/update_City/{id}")
@@ -172,10 +170,9 @@ public class MyFirstMicroserviceApplication {
 
 	@PostMapping("/add_Country")
 	public @ResponseBody
-	String addCountry(@RequestParam String country_name) {
-		Country addCountry = new Country(country_name);
-		countryRepository.save(addCountry);
-		return saved;
+	ResponseEntity<Country>addCountry(@RequestBody Country addCountry) { //defines Country and obtains data required for entry
+		countryRepository.save(addCountry); //saves Country
+		return ResponseEntity.ok(addCountry); //returns message saved
 	}
 
 	@PutMapping("/update_Country/{id}")
@@ -208,10 +205,9 @@ public class MyFirstMicroserviceApplication {
 
 	@PostMapping("/add_Film")
 	public @ResponseBody
-	String addFilm(@RequestParam String title, String description, Integer release_year, Integer language_id, Integer length, String rating) {
-		Film addFilm = new Film(title, description, release_year, language_id, length, rating);
-		filmRepository.save(addFilm);
-		return saved;
+	ResponseEntity<Film>addFilm(@RequestBody Film addFilm) { //defines Film and obtains data required for entry
+		filmRepository.save(addFilm); //saves Film
+		return ResponseEntity.ok(addFilm); //returns message saved
 	}
 
 	@PutMapping("/update_Film/{id}")
@@ -249,10 +245,9 @@ public class MyFirstMicroserviceApplication {
 
 	@PostMapping("/add_Language")
 	public @ResponseBody
-	String addLanguage(@RequestParam String language_name) {
-		Language addLanguage = new Language(language_name);
-		languageRepository.save(addLanguage);
-		return saved;
+	ResponseEntity<Language>addLanguage(@RequestBody Language addLanguage) { //defines Language and obtains data required for entry
+		languageRepository.save(addLanguage); //saves Language
+		return ResponseEntity.ok(addLanguage); //returns message saved
 	}
 
 	@PutMapping("/update_Language/{id}")
@@ -285,10 +280,9 @@ public class MyFirstMicroserviceApplication {
 
 	@PostMapping("/add_Rental")
 	public @ResponseBody
-	String addRental(@RequestParam String rental_date, int inventory_id, int customer_id, String return_date, int staff_id) {
-		Rental addRental = new Rental(rental_date, inventory_id, customer_id, return_date, staff_id);
-		rentalRepository.save(addRental);
-		return saved;
+	ResponseEntity<Rental>addRental(@RequestBody Rental addRental) { //defines Rental and obtains data required for entry
+		rentalRepository.save(addRental); //saves Rental
+		return ResponseEntity.ok(addRental); //returns message saved
 	}
 
 	@PutMapping("/update_Rental/{id}")
