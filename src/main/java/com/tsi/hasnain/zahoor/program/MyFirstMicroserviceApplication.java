@@ -159,156 +159,156 @@ public class MyFirstMicroserviceApplication {
 
 	//Country Mapping
 
-	@GetMapping("/all_Countries")
-	public @ResponseBody
-	Iterable<Country>getAllCountries(){
-		return countryRepository.findAll();
-	}
-
-	@GetMapping("/a_Country")
-	public Country getCountry(@RequestParam Integer country_id) {
-		return countryRepository.findById(country_id).orElseThrow(RuntimeException::new);
-	}
-
-	@PostMapping("/add_Country")
-	public @ResponseBody
-	String addCountry(@RequestParam String country_name) {
-		Country addCountry = new Country(country_name);
-		countryRepository.save(addCountry);
-		return saved;
-	}
-
-	@PutMapping("/update_Country/{id}")
-	public @ResponseBody ResponseEntity<Country> updateCountry(@PathVariable int id, @RequestBody Country country) {
-		Country updateCountry = countryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Country not found :("));
-		updateCountry.setCountry_name (country.getCountry_name());
-		countryRepository.save(updateCountry);
-		return ResponseEntity.ok(updateCountry);
-	}
-
-	@DeleteMapping("/delete_Country")
-	public ResponseEntity<Country> deleteCountry(@RequestParam Integer country_id) {
-		Country deletedCountry = countryRepository.findById(country_id).orElseThrow(() -> new ResourceNotFoundException("Country not found :("));
-		countryRepository.deleteById(country_id);
-		return ResponseEntity.ok(deletedCountry);
-	}
-
-	//Film Mapping
-
-	@GetMapping("/all_Films")
-	public @ResponseBody
-	Iterable<Film>getAllFilms(){
-		return filmRepository.findAll();
-	}
-
-	@GetMapping("/a_Film")
-	public Film getFilm(@RequestParam Integer film_id) {
-		return filmRepository.findById(film_id).orElseThrow(RuntimeException::new);
-	}
-
-	@PostMapping("/add_Film")
-	public @ResponseBody
-	String addFilm(@RequestParam String title, String description, Integer release_year, Integer language_id, Integer length, String rating) {
-		Film addFilm = new Film(title, description, release_year, language_id, length, rating);
-		filmRepository.save(addFilm);
-		return saved;
-	}
-
-	@PutMapping("/update_Film/{id}")
-	public @ResponseBody ResponseEntity<Film> updateFilm(@PathVariable int id, @RequestBody Film film) {
-		Film updateFilm = filmRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Film not found :("));
-		updateFilm.setFilm_name(film.getFilm_name());
-		updateFilm.setFilm_description(film.getFilm_description());
-		updateFilm.setRelease_year(film.getRelease_year());
-		updateFilm.setLanguage_id(film.getLanguage_id());
-		updateFilm.setLength(film.getLength());
-		updateFilm.setRating(film.getRating());
-		filmRepository.save(updateFilm);
-		return ResponseEntity.ok(updateFilm);
-	}
-
-	@DeleteMapping("/delete_Film")
-	public ResponseEntity<Film> deleteFilm(@RequestParam Integer film_id) {
-		Film deletedFilm = filmRepository.findById(film_id).orElseThrow(() -> new ResourceNotFoundException("Film not found :("));
-		filmRepository.deleteById(film_id);
-		return ResponseEntity.ok(deletedFilm);
-	}
-
-	//Language Mapping
-
-	@GetMapping("/all_Languages")
-	public @ResponseBody
-	Iterable<Language>getAllLanguages(){
-		return languageRepository.findAll();
-	}
-
-	@GetMapping("/a_Language")
-	public Language getLanguage(@RequestParam Integer language_id) {
-		return languageRepository.findById(language_id).orElseThrow(RuntimeException::new);
-	}
-
-	@PostMapping("/add_Language")
-	public @ResponseBody
-	String addLanguage(@RequestParam String language_name) {
-		Language addLanguage = new Language(language_name);
-		languageRepository.save(addLanguage);
-		return saved;
-	}
-
-	@PutMapping("/update_Language/{id}")
-	public @ResponseBody ResponseEntity<Language> updateLanguage(@PathVariable int id, @RequestBody Language language) {
-		Language updateLanguage = languageRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Language not found :("));
-		updateLanguage.setLanguage_name(language.getLanguage_name());
-		languageRepository.save(updateLanguage);
-		return ResponseEntity.ok(updateLanguage);
-	}
-
-	@DeleteMapping("/delete_Language")
-	public ResponseEntity<Language> deleteLanguage(@RequestParam Integer language_id) {
-		Language deletedLanguage = languageRepository.findById(language_id).orElseThrow(() -> new ResourceNotFoundException("Language not found :("));
-		languageRepository.deleteById(language_id);
-		return ResponseEntity.ok(deletedLanguage);
-	}
-
-	//Rental Mapping
-
-	@GetMapping("/all_Rentals")
-	public @ResponseBody
-	Iterable<Rental>getRentals(){
-		return rentalRepository.findAll();
-	}
-
-	@GetMapping("/a_Rental")
-	public Rental getRental(@RequestParam Integer rental_id) {
-		return rentalRepository.findById(rental_id).orElseThrow(RuntimeException::new);
-	}
-
-	@PostMapping("/add_Rental")
-	public @ResponseBody
-	String addRental(@RequestParam String rental_date, int inventory_id, int customer_id, String return_date, int staff_id) {
-		Rental addRental = new Rental(rental_date, inventory_id, customer_id, return_date, staff_id);
-		rentalRepository.save(addRental);
-		return saved;
-	}
-
-	@PutMapping("/update_Rental/{id}")
-	public @ResponseBody ResponseEntity<Rental> updateRental(@PathVariable int id, @RequestBody Rental rental) {
-		Rental updateRental = rentalRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Rental not found :("));
-		updateRental.setRental_date(rental.getRental_date());
-		updateRental.setInventory_id(rental.getInventory_id());
-		updateRental.setCustomer_id(rental.getCustomer_id());
-		updateRental.setReturn_date(rental.getReturn_date());
-		updateRental.setStaff_id(rental.getStaff_id());
-		rentalRepository.save(updateRental);
-		return ResponseEntity.ok(updateRental);
-	}
-
-	@DeleteMapping("/delete_Rental")
-	public ResponseEntity<Rental> deleteRental(@RequestParam Integer rental_id) {
-		Rental deletedRental = rentalRepository.findById(rental_id).orElseThrow(() -> new ResourceNotFoundException("Rental not found :("));
-		rentalRepository.deleteById(rental_id);
-		return ResponseEntity.ok(deletedRental);
-	}
+//	@GetMapping("/all_Countries")
+//	public @ResponseBody
+//	Iterable<Country>getAllCountries(){
+//		return countryRepository.findAll();
+//	}
+//
+//	@GetMapping("/a_Country")
+//	public Country getCountry(@RequestParam Integer country_id) {
+//		return countryRepository.findById(country_id).orElseThrow(RuntimeException::new);
+//	}
+//
+//	@PostMapping("/add_Country")
+//	public @ResponseBody
+//	String addCountry(@RequestParam String country_name) {
+//		Country addCountry = new Country(country_name);
+//		countryRepository.save(addCountry);
+//		return saved;
+//	}
+//
+//	@PutMapping("/update_Country/{id}")
+//	public @ResponseBody ResponseEntity<Country> updateCountry(@PathVariable int id, @RequestBody Country country) {
+//		Country updateCountry = countryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Country not found :("));
+//		updateCountry.setCountry_name (country.getCountry_name());
+//		countryRepository.save(updateCountry);
+//		return ResponseEntity.ok(updateCountry);
+//	}
+//
+//	@DeleteMapping("/delete_Country")
+//	public ResponseEntity<Country> deleteCountry(@RequestParam Integer country_id) {
+//		Country deletedCountry = countryRepository.findById(country_id).orElseThrow(() -> new ResourceNotFoundException("Country not found :("));
+//		countryRepository.deleteById(country_id);
+//		return ResponseEntity.ok(deletedCountry);
+//	}
+//
+//	//Film Mapping
+//
+//	@GetMapping("/all_Films")
+//	public @ResponseBody
+//	Iterable<Film>getAllFilms(){
+//		return filmRepository.findAll();
+//	}
+//
+//	@GetMapping("/a_Film")
+//	public Film getFilm(@RequestParam Integer film_id) {
+//		return filmRepository.findById(film_id).orElseThrow(RuntimeException::new);
+//	}
+//
+//	@PostMapping("/add_Film")
+//	public @ResponseBody
+//	String addFilm(@RequestParam String title, String description, Integer release_year, Integer language_id, Integer length, String rating) {
+//		Film addFilm = new Film(title, description, release_year, language_id, length, rating);
+//		filmRepository.save(addFilm);
+//		return saved;
+//	}
+//
+//	@PutMapping("/update_Film/{id}")
+//	public @ResponseBody ResponseEntity<Film> updateFilm(@PathVariable int id, @RequestBody Film film) {
+//		Film updateFilm = filmRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Film not found :("));
+//		updateFilm.setFilm_name(film.getFilm_name());
+//		updateFilm.setFilm_description(film.getFilm_description());
+//		updateFilm.setRelease_year(film.getRelease_year());
+//		updateFilm.setLanguage_id(film.getLanguage_id());
+//		updateFilm.setLength(film.getLength());
+//		updateFilm.setRating(film.getRating());
+//		filmRepository.save(updateFilm);
+//		return ResponseEntity.ok(updateFilm);
+//	}
+//
+//	@DeleteMapping("/delete_Film")
+//	public ResponseEntity<Film> deleteFilm(@RequestParam Integer film_id) {
+//		Film deletedFilm = filmRepository.findById(film_id).orElseThrow(() -> new ResourceNotFoundException("Film not found :("));
+//		filmRepository.deleteById(film_id);
+//		return ResponseEntity.ok(deletedFilm);
+//	}
+//
+//	//Language Mapping
+//
+//	@GetMapping("/all_Languages")
+//	public @ResponseBody
+//	Iterable<Language>getAllLanguages(){
+//		return languageRepository.findAll();
+//	}
+//
+//	@GetMapping("/a_Language")
+//	public Language getLanguage(@RequestParam Integer language_id) {
+//		return languageRepository.findById(language_id).orElseThrow(RuntimeException::new);
+//	}
+//
+//	@PostMapping("/add_Language")
+//	public @ResponseBody
+//	String addLanguage(@RequestParam String language_name) {
+//		Language addLanguage = new Language(language_name);
+//		languageRepository.save(addLanguage);
+//		return saved;
+//	}
+//
+//	@PutMapping("/update_Language/{id}")
+//	public @ResponseBody ResponseEntity<Language> updateLanguage(@PathVariable int id, @RequestBody Language language) {
+//		Language updateLanguage = languageRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Language not found :("));
+//		updateLanguage.setLanguage_name(language.getLanguage_name());
+//		languageRepository.save(updateLanguage);
+//		return ResponseEntity.ok(updateLanguage);
+//	}
+//
+//	@DeleteMapping("/delete_Language")
+//	public ResponseEntity<Language> deleteLanguage(@RequestParam Integer language_id) {
+//		Language deletedLanguage = languageRepository.findById(language_id).orElseThrow(() -> new ResourceNotFoundException("Language not found :("));
+//		languageRepository.deleteById(language_id);
+//		return ResponseEntity.ok(deletedLanguage);
+//	}
+//
+//	//Rental Mapping
+//
+//	@GetMapping("/all_Rentals")
+//	public @ResponseBody
+//	Iterable<Rental>getRentals(){
+//		return rentalRepository.findAll();
+//	}
+//
+//	@GetMapping("/a_Rental")
+//	public Rental getRental(@RequestParam Integer rental_id) {
+//		return rentalRepository.findById(rental_id).orElseThrow(RuntimeException::new);
+//	}
+//
+//	@PostMapping("/add_Rental")
+//	public @ResponseBody
+//	String addRental(@RequestParam String rental_date, int inventory_id, int customer_id, String return_date, int staff_id) {
+//		Rental addRental = new Rental(rental_date, inventory_id, customer_id, return_date, staff_id);
+//		rentalRepository.save(addRental);
+//		return saved;
+//	}
+//
+//	@PutMapping("/update_Rental/{id}")
+//	public @ResponseBody ResponseEntity<Rental> updateRental(@PathVariable int id, @RequestBody Rental rental) {
+//		Rental updateRental = rentalRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Rental not found :("));
+//		updateRental.setRental_date(rental.getRental_date());
+//		updateRental.setInventory_id(rental.getInventory_id());
+//		updateRental.setCustomer_id(rental.getCustomer_id());
+//		updateRental.setReturn_date(rental.getReturn_date());
+//		updateRental.setStaff_id(rental.getStaff_id());
+//		rentalRepository.save(updateRental);
+//		return ResponseEntity.ok(updateRental);
+//	}
+//
+//	@DeleteMapping("/delete_Rental")
+//	public ResponseEntity<Rental> deleteRental(@RequestParam Integer rental_id) {
+//		Rental deletedRental = rentalRepository.findById(rental_id).orElseThrow(() -> new ResourceNotFoundException("Rental not found :("));
+//		rentalRepository.deleteById(rental_id);
+//		return ResponseEntity.ok(deletedRental);
+//	}
 
 
 

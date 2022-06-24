@@ -9,17 +9,11 @@ public class FilmTest {
     Film testFilm2 = new Film();
 
     @Test
-    void testID(){
-        Assertions.assertEquals(0, testFilm.getFilm_id(),"Incorrect ID");}
-    @Test
-    void testName(){
-        Assertions.assertEquals("Filmname", testFilm.getFilm_name(),"Incorrect film name");}
-    @Test
-    void testDescription(){
-    Assertions.assertEquals("Filmdescription", testFilm.getFilm_description(),"Incorrect film description");}
-    @Test
-    void testFilm(){
-    Assertions.assertEquals(2022, testFilm.getRelease_year(), "Incorrect release year");
+    public void testActor(){
+        Assertions.assertEquals(0, testFilm.getFilm_id(),"Incorrect ID");
+        Assertions.assertEquals("Filmname", testFilm.getFilm_name(),"Incorrect film name");
+        Assertions.assertEquals("Filmdescription", testFilm.getFilm_description(),"Incorrect film description");
+        Assertions.assertEquals(2022, testFilm.getRelease_year(), "Incorrect release year");
         Assertions.assertEquals(1, testFilm.getLanguage_id(), "Incorrect language ID");
         Assertions.assertEquals(60, testFilm.getLength(), "Incorrect film length");
         Assertions.assertEquals("PG", testFilm.getRating(), "Incorrect film rating");
