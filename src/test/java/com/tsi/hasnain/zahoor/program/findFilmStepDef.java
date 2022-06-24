@@ -13,7 +13,8 @@ import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 
-public class findActorStepDef {
+public class findFilmStepDef {
+
     private MyFirstMicroserviceApplication myFirstMicroserviceApplication;
     @Mock
     private ActorRepository actorRepository;
@@ -41,24 +42,23 @@ public class findActorStepDef {
         rentalRepository =mock(RentalRepository.class);
         myFirstMicroserviceApplication = new MyFirstMicroserviceApplication(actorRepository, categoryRepository, cityRepository, countryRepository, filmRepository, languageRepository, rentalRepository);
     }
-    Actor TestDummy;
-    Actor Actual;
-    Actor expected;
-
-    @Given("I have the actor id of the actor")
-    public void i_have_the_actor_id_of_the_actor() {
-        TestDummy = new Actor("FName", "LName");
-        TestDummy.setActor_id(1);
+    Film TestDummy;
+    Film Actual;
+    Film expected;
+    @Given("I have the film id of the film")
+    public void i_have_the_film_id_of_the_film() {
+        TestDummy = new Film("TestTitle", "TestDescription", 1998, 3, 100, "PGTest");
+        TestDummy.setFilm_id(1);
     }
-    @When("I input the data into the database")
-    public void i_input_the_data_into_the_database_to_get() {
+    @When("I input the film id into the database")
+    public void i_input_the_film_id_into_the_database() {
         setup();
-        when(actorRepository.findById(1)).thenReturn(Optional.of(TestDummy));
-        Actual = myFirstMicroserviceApplication.getActor(TestDummy.getActor_id());
+        when(filmRepository.findById(1)).thenReturn(Optional.of(TestDummy));
+        Actual = myFirstMicroserviceApplication.getFilm(TestDummy.getFilm_id());
     }
-    @Then("I get a return of the correct actor")
-    public void i_get_a_return_of_the_correct_actor() {
+    @Then("I get a return of the correct film")
+    public void i_get_a_return_of_the_correct_film() {
         expected = TestDummy;
-        Assertions.assertEquals(expected, Actual, "Could not find actor with ID: ");
+        Assertions.assertEquals(expected, Actual, "Could not find film with ID: ");
     }
 }

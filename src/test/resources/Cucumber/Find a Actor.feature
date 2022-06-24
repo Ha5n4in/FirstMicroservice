@@ -3,5 +3,5 @@ Feature: Find an actor
 
   Scenario: I successfully find an actor from my table
     Given I have the actor id of the actor
-    When I input the data into the database to get
+    When I input the data into the database
     Then I get a return of the correct actor
