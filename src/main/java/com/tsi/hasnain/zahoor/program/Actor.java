@@ -7,11 +7,11 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+@Entity // Tells MY SQL this class is a table within the database
 @Table(name ="actor")
 public class Actor {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Tells MY SQL is unique for actor
     private int actor_id;
 
     //Attributes

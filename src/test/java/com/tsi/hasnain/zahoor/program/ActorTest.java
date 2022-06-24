@@ -10,9 +10,10 @@ public class ActorTest {
 
     @Test
     public void testActor(){
-        Assertions.assertEquals(0, testActor.getActor_id(),"Incorrect ID");
+        Assertions.assertEquals(0, testActor.getActor_id(),"Incorrect ID");  //id compared to test actor id
         Assertions.assertEquals("Firstname", testActor.getFirst_name(),"Incorrect first name");
         Assertions.assertEquals("Lastname",testActor.getLast_name(),"Incorrect last name");
+        // this is all done to test the getters now the setters are tested below
 
         testActor2.setFirst_name("testFName");
         Assertions.assertEquals("testFName",testActor2.getFirst_name(),"Incorrect first name");

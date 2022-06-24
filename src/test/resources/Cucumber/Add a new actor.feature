@@ -3,5 +3,5 @@ Feature: Add a new actor
 
   Scenario: I successfully add an actor into my table
     Given I have the actors information
-    When I input the data into the database
-    Then I get the success return string
+    When I input the data into the database to add
+    Then I get the success return for adding actor
