@@ -64,6 +64,6 @@ public class deleteActorsStepDef {
         expected = TestDummy;
         ArgumentCaptor<Integer> actorArgumentCaptor = ArgumentCaptor.forClass(Integer.class);
         verify(actorRepository).deleteById(actorArgumentCaptor.capture());
-        Assertions.assertEquals(expected, Actual, "Shopper not deleted");
+        Assertions.assertEquals(expected, Actual, "Actor not deleted");
     }
 }
